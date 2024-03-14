@@ -49,7 +49,51 @@
     }
 }
 
+public enum Tombol
+{
+    TombolW,
+    TombolS
+}
 
+public class PosisiKarakterGame
+{
+    private Tombol tekan;
+    private string posisiawal;
+    private string posisiselanjutnya;
+
+    public void PosisiBerdiri()
+    {
+       if (posisiawal == "Berdiri")
+        {
+            tekan = Tombol.TombolW;
+            posisiselanjutnya = PosisiTerbang();
+        }
+    }
+
+    public void PosisiJongkok()
+    {
+        if (posisiawal == "Jongkok")
+        {
+            tekan = Tombol.TombolS;
+            posisiselanjutnya = PosisiTengkurap();
+            Console.WriteLine("posisi istirahat");
+        }
+    }
+
+    public void PosisiTengkurap()
+    {
+        if (posisiawal == "Tengkurap")
+        {
+            tekan = Tombol.TombolW;
+            posisiselanjutnya = PosisiJongkok();
+        }
+    }
+
+    public void PosisiTerbang()
+    {
+
+    }
+}
 
 internal class Program
 {
